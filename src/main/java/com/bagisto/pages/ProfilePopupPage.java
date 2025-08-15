@@ -14,7 +14,7 @@ public class ProfilePopupPage extends BasePage {
     }
 
     public void openRegistrationPage() {
-        waitForVisibility(signupButton);
+        waitForVisibility(signupButton, 5);
         clickButton(signupButton);
     }
 }

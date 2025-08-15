@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
     protected WebDriver driver;
-    private final int DEFAULT_TIMEOUT = 10;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -36,14 +35,14 @@ public class BasePage {
         }
     }
 
-    protected WebElement waitForVisibility(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+    protected WebElement waitForVisibility(WebElement element, int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, seconds);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     protected boolean isElementVisible(WebElement element) {
         try {
-            return waitForVisibility(element).isDisplayed();
+            return waitForVisibility(element, 10).isDisplayed();
         } catch (TimeoutException e) {
             return false;
         }

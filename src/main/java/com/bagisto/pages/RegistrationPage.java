@@ -32,7 +32,7 @@ public class RegistrationPage extends BasePage {
     }
 
     public void userRegistration(String firstName, String lastName, String email, String password, boolean conditionsValue) {
-        waitForVisibility(firstNameField);
+        waitForVisibility(firstNameField, 10);
         setInputText(firstNameField, firstName);
         setInputText(lastNameField, lastName);
         setInputText(emailField, email);

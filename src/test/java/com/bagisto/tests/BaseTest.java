@@ -1,13 +1,12 @@
 package com.bagisto.tests;
 
+import com.bagisto.utils.Helper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 public class BaseTest {
 
@@ -35,6 +34,16 @@ public class BaseTest {
 
         driver.navigate().to("https://demo.bagisto.com/bagisto-common");
         driver.manage().window().maximize();
+    }
+
+    // Take screenshot when test cases fail and add it in the Screenshots folder
+    @AfterMethod
+    public void screenshotOnFailure(ITestResult result) {
+        if(result.getStatus() == ITestResult.FAILURE) {
+            System.out.println("Failed!");
+            System.out.println("Taking Screenshot...");
+            Helper.takeScreenshot(driver, result.getName());
+        }
     }
 
     @AfterSuite

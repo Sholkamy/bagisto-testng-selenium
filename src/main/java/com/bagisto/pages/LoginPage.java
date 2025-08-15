@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
     }
 
     public String returnPageTitle() {
-        waitForVisibility(pageTitle);
+        waitForVisibility(pageTitle, 5);
         return pageTitle.getText();
     }
 }
