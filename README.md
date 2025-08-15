@@ -25,3 +25,5 @@ This project provides hands‑on experience in building a comprehensive UI testi
 | **Page Object Model**      | Design pattern for maintainable & scalable test code          |
 | **Maven**                  | Build and dependency management tool                          |
 | **Git**                    | Version control system                                        |
+
+---
